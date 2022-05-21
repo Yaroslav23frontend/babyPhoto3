@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {frameDelete, photoData} from '../store/action';
 import {textDeleteAll, stickerDeleteAll} from '../store/action';
 import Header from './Header';
+import {captureRef} from 'react-native-view-shot';
 const HeaderFilter = React.forwardRef((props, ref) => {
   const photoDataPrev = useSelector(state => state.photoData);
   const frame = useSelector(state => state.frame);
@@ -13,7 +14,10 @@ const HeaderFilter = React.forwardRef((props, ref) => {
   const {imgRotate, setImgRotate, setActive} = useActive();
   const saveImage = async () => {
     console.log(ref.current);
-    ref.current.capture().then(uri => {
+    captureRef(ref, {
+      format: 'jpg',
+      quality: 1,
+    }).then(uri => {
       const newURI = {
         ...photoDataPrev,
         photoURI: uri,

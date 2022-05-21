@@ -3,12 +3,22 @@ import {ImageBackground} from 'react-native';
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 import {useActive} from '../context/ActiveContext';
 import {View} from 'react-native';
-
 import {useSelector} from 'react-redux';
-
+import {
+  ColorMatrix,
+  concatColorMatrices,
+  contrast,
+  brightness,
+} from 'react-native-color-matrix-image-filters';
 export default function Img({filters, rotate, editor, children}) {
-  const {setActive, brightness, contrast, imgRotate, mirrorX, mirrorY} =
-    useActive();
+  const {
+    setActive,
+    brightnessValue,
+    contrastValue,
+    imgRotate,
+    mirrorX,
+    mirrorY,
+  } = useActive();
 
   const data = useSelector(state => state.photoData);
 
@@ -36,14 +46,18 @@ export default function Img({filters, rotate, editor, children}) {
           //     {{uri: data.photoURI}}
           //   </ImageFilters>
           // </Surface>
-          <ImageBackground
-            source={{uri: data.photoURI}}
-            style={{
-              width: data.adaptedWidth,
-              height: data.adaptedHeight,
-            }}>
-            {children}
-          </ImageBackground>
+          <ColorMatrix
+            matrix={concatColorMatrices([
+              brightness(brightnessValue),
+              contrast(contrastValue),
+            ])}>
+            <ImageBackground
+              source={{uri: data.photoURI}}
+              style={{
+                width: data.adaptedWidth,
+                height: data.adaptedHeight,
+              }}></ImageBackground>
+          </ColorMatrix>
         ) : (
           <></>
         )}

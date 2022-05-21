@@ -5,7 +5,8 @@ import {useActive} from '../context/ActiveContext';
 import MaterialIcons from './icons/MaterialIcons';
 import Ionicons from './icons/Ionicons';
 export default function Filters() {
-  const {brightness, setBrightness, contrast, setContrast} = useActive();
+  const {brightnessValue, setBrightnessValue, contrastValue, setContrastValue} =
+    useActive();
   return (
     <View
       style={{
@@ -35,8 +36,8 @@ export default function Filters() {
           maximumValue={10}
           minimumTrackTintColor="#FFFFFF"
           maximumTrackTintColor="#000000"
-          onValueChange={value => setContrast(value)}
-          value={contrast}
+          onValueChange={value => setContrastValue(value)}
+          value={contrastValue}
         />
       </View>
       <View
@@ -57,8 +58,8 @@ export default function Filters() {
           maximumValue={5}
           minimumTrackTintColor="#FFFFFF"
           maximumTrackTintColor="#000000"
-          onValueChange={value => setBrightness(value)}
-          value={brightness}
+          onValueChange={value => setBrightnessValue(value)}
+          value={brightnessValue}
         />
       </View>
     </View>

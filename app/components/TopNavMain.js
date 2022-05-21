@@ -1,12 +1,15 @@
 import React, {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
-import {CameraRoll} from 'react-native';
 import {PermissionsAndroid} from 'react-native';
 import Share from 'react-native-share';
 import {useActive} from '../context/ActiveContext';
 import Btn from './Btn';
 import MyModal from './Modal';
 import AwesomeAlert from 'react-native-awesome-alerts';
+import CameraRoll from '@react-native-community/cameraroll';
+import {captureRef} from 'react-native-view-shot';
+import * as permissions from 'react-native-permissions';
+import {request, PERMISSIONS} from 'react-native-permissions';
 const TopNavMain = React.forwardRef((props, ref) => {
   const {headerVisability, setModalVisability} = useActive();
   const [massege, setMassege] = useState('');
@@ -14,37 +17,36 @@ const TopNavMain = React.forwardRef((props, ref) => {
   const [funcType, setFuncType] = useState();
   const [showAlert, setShowAlert] = useState(false);
   const saveToLibrary = async () => {
+    request(PERMISSIONS.WRITE_EXTERNAL_STORAGE).then(result => {
+      console.log(result);
+    });
     const permission = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
     const hasPermission = await PermissionsAndroid.check(permission);
-    if (hasPermission) {
-      ref.current.capture().then(uri => {
-        CameraRoll.save(uri, 'photo');
-        setShowAlert(true);
-        setTimeout(() => {
-          setShowAlert(false);
-        }, 1000);
-      });
-    } else {
-      alert("You don't have pramission to save photo");
-    }
+    captureRef(ref, {
+      format: 'jpg',
+      quality: 1,
+    }).then(async uri => {
+      CameraRoll.save(uri);
+      setShowAlert(true);
+      setTimeout(() => {
+        setShowAlert(false);
+      }, 1000);
+    });
   };
 
   const shareImage = async () => {
-    const permission = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
-    const hasPermission = await PermissionsAndroid.check(permission);
-    if (hasPermission) {
-      ref.current.capture().then(uri => {
-        Share.open(uri)
-          .then(res => {
-            console.log(res);
-          })
-          .catch(err => {
-            err && console.log(err);
-          });
-      });
-    } else {
-      alert("You don't have pramission to save photo");
-    }
+    captureRef(ref, {
+      format: 'jpg',
+      quality: 1,
+    }).then(uri => {
+      Share.open({uri: uri})
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => {
+          err && console.log(err);
+        });
+    });
   };
   if (headerVisability) {
     return (

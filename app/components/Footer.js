@@ -1,11 +1,11 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { useActive } from "../context/ActiveContext";
-import { textDelete, stickerDelete, frameDelete } from "../store/action";
-import ScaleRotate from "./ScaleRotate";
-import { StyleSheet, View, Dimensions, Text } from "react-native";
-import Btn from "./Btn";
-export default function Footer({ frame, navigation }) {
+import React from 'react';
+import {useDispatch} from 'react-redux';
+import {useActive} from '../context/ActiveContext';
+import {textDelete, stickerDelete, frameDelete} from '../store/action';
+import ScaleRotate from './ScaleRotate';
+import {StyleSheet, View, Dimensions, Text} from 'react-native';
+import Btn from './Btn';
+export default function Footer({frame, navigation}) {
   const dispatch = useDispatch();
   const {
     active,
@@ -19,14 +19,14 @@ export default function Footer({ frame, navigation }) {
     setMirrorX,
     setMirrorY,
     setFramesVisability,
-    setBrightness,
-    setContrast,
+    setBrightnessValue,
+    setContrastValue,
   } = useActive();
 
   if (footerVisability) {
     return (
       <View style={styles.footer}>
-        {active !== "" ? <ScaleRotate /> : <></>}
+        {active !== '' ? <ScaleRotate /> : <></>}
 
         <View style={styles.footerBtns}>
           <Btn
@@ -35,15 +35,15 @@ export default function Footer({ frame, navigation }) {
               setFooterVisability(false);
               setEditText({
                 data: {
-                  text: "",
-                  font: "",
-                  color: "",
-                  scale: "",
-                  opacity: "",
-                  point: "",
-                  rotateText: "",
-                  surfaceHeight: "",
-                  surfaceWidth: "",
+                  text: '',
+                  font: '',
+                  color: '',
+                  scale: '',
+                  opacity: '',
+                  point: '',
+                  rotateText: '',
+                  surfaceHeight: '',
+                  surfaceWidth: '',
                 },
                 edit: false,
               });
@@ -54,7 +54,7 @@ export default function Footer({ frame, navigation }) {
           />
           <Btn
             func={() => {
-              navigation.navigate("Rotate");
+              navigation.navigate('Rotate');
               setImgRotate(0);
               setMirrorX(1);
               setMirrorY(1);
@@ -69,8 +69,8 @@ export default function Footer({ frame, navigation }) {
               setFooterVisability(false);
               setHeaderVisability(false);
             }}
-            type={"MaterialCommunityIcons"}
-            name={"image-frame"}
+            type={'MaterialCommunityIcons'}
+            name={'image-frame'}
             size={45}
           />
           <Btn
@@ -85,9 +85,9 @@ export default function Footer({ frame, navigation }) {
           />
           <Btn
             func={() => {
-              navigation.navigate("Filters");
-              setBrightness(1);
-              setContrast(1);
+              navigation.navigate('Filters');
+              setBrightnessValue(1);
+              setContrastValue(1);
             }}
             type="Ionicons"
             name="color-filter-outline"
@@ -96,9 +96,9 @@ export default function Footer({ frame, navigation }) {
 
           <Btn
             func={() => {
-              dispatch({ type: textDelete, payload: active });
-              dispatch({ type: stickerDelete, payload: active });
-              dispatch({ type: frameDelete, payload: {} });
+              dispatch({type: textDelete, payload: active});
+              dispatch({type: stickerDelete, payload: active});
+              dispatch({type: frameDelete, payload: {}});
             }}
             type="SimpleLineIcons"
             name="trash"
@@ -113,18 +113,18 @@ export default function Footer({ frame, navigation }) {
 }
 const styles = StyleSheet.create({
   footer: {
-    width: Dimensions.get("window").width,
-    backgroundColor: "rgba(255,255,255,0.5)",
-    position: "absolute",
+    width: Dimensions.get('window').width,
+    backgroundColor: 'rgba(255,255,255,0.5)',
+    position: 'absolute',
     bottom: 0,
     zIndex: 1000000000,
-    width: "100%",
+    width: '100%',
   },
 
   footerBtns: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-around",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
     paddingHorizontal: 20,
   },
 });
