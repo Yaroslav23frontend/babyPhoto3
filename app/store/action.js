@@ -1,0 +1,13 @@
+export const photoData = "PHOTO_DATA";
+export const text = "TEXT";
+export const textPosition = "TEXT_POSITION";
+export const textEdit = "TEXT_EDIT";
+export const stickerData = "STICKER_DATA";
+export const stickerDelete = "STICKER_DLETE";
+export const textDelete = "TEXT_DELETE";
+export const frameData = "FRAME_DATA";
+export const frameDelete = "FRAME_DELETE";
+export const stickerDeleteAll = "STICKER_DELETE_ALL";
+export const textDeleteAll = "TEXT_DELETE_ALL";
+export const stickerEdit = "STICKER_EDIT";
+export const delChanges = "DEL_CHANGES";

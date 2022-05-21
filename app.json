@@ -1,0 +1,14 @@
+{
+  "name": "babyPhoto3",
+  "displayName": "babyPhoto3",
+  "android": {
+    "adaptiveIcon": {
+      "foregroundImage": "./assets/adaptive-icon.png",
+      "backgroundColor": "#FFFFFF"
+    },
+    "package": "com.yaroslav2323.babyphotoEditor2"
+  },
+  "web": {
+    "favicon": "./assets/favicon.png"
+  }
+}
