@@ -1,15 +1,16 @@
-import React, { useRef, useState } from "react";
-import { useEffect } from "react";
+import React, {useRef, useState} from 'react';
+import {useEffect} from 'react';
 import {
   Animated,
   StyleSheet,
   PanResponder,
   Text,
   Pressable,
-} from "react-native";
-import { useActive } from "../context/ActiveContext";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { storeLocalData } from "../localstore/localstore";
+} from 'react-native';
+import {useActive} from '../context/ActiveContext';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {storeLocalData} from '../localstore/localstore';
+import {useScaleRotate} from '../context/ScaleRotateContext';
 export default function TextItem({
   color,
   font,
@@ -19,22 +20,22 @@ export default function TextItem({
   width,
   height,
 }) {
-  console.log("Item text" + idMain);
+  console.log('Item text' + idMain);
   const pan = useRef(new Animated.ValueXY()).current;
   const [rotate, setRotate] = useState(0);
   const [scale, setScale] = useState(1);
 
   const LoadPosition = () => {
-    AsyncStorage.getItem(`${idMain}-item`).then((data) => {
+    AsyncStorage.getItem(`${idMain}-item`).then(data => {
       pan.setValue({
         x: JSON.parse(data).x,
         y: JSON.parse(data).y,
       });
     });
-    AsyncStorage.getItem(`${idMain}-item-rotate`).then((data) => {
+    AsyncStorage.getItem(`${idMain}-item-rotate`).then(data => {
       setRotate(Number(data));
     });
-    AsyncStorage.getItem(`${idMain}-item-scale`).then((data) => {
+    AsyncStorage.getItem(`${idMain}-item-scale`).then(data => {
       setScale(Number(data));
     });
   };
@@ -43,17 +44,14 @@ export default function TextItem({
     LoadPosition();
   }, []);
   const {
-    tempRotate,
-    setTempRotate,
     active,
     setActive,
-    tempScale,
-    setTempScale,
     editText,
     setEditText,
     setTextEditVisability,
     setFooterVisability,
   } = useActive();
+  const {tempRotate, setTempRotate, tempScale, setTempScale} = useScaleRotate();
   const panResponder = useRef(
     PanResponder.create({
       onMoveShouldSetPanResponder: () => true,
@@ -63,7 +61,7 @@ export default function TextItem({
           y: pan.y._value,
         });
       },
-      onPanResponderMove: Animated.event([null, { dx: pan.x, dy: pan.y }], {
+      onPanResponderMove: Animated.event([null, {dx: pan.x, dy: pan.y}], {
         useNativeDriver: false,
       }),
       onPanResponderRelease: (evt, gestureState) => {
@@ -71,17 +69,17 @@ export default function TextItem({
         const x = pan.x;
         const y = pan.y;
         if (Number(JSON.stringify(x)) > width / 2) {
-          pan.setValue({ x: width / 2, y: Number(JSON.stringify(y)) });
+          pan.setValue({x: width / 2, y: Number(JSON.stringify(y))});
         } else if (Number(JSON.stringify(x)) < (width / 2) * -1) {
-          pan.setValue({ x: (width / 2) * -1, y: Number(JSON.stringify(y)) });
+          pan.setValue({x: (width / 2) * -1, y: Number(JSON.stringify(y))});
         } else if (Number(JSON.stringify(y)) < (height / 2) * -1) {
-          pan.setValue({ y: (height / 2) * -1, x: Number(JSON.stringify(x)) });
+          pan.setValue({y: (height / 2) * -1, x: Number(JSON.stringify(x))});
         } else if (Number(JSON.stringify(y)) > height / 2) {
-          pan.setValue({ y: height / 2, x: Number(JSON.stringify(x)) });
+          pan.setValue({y: height / 2, x: Number(JSON.stringify(x))});
         }
-        storeLocalData(`${idMain}-item`, { x: x, y: y });
+        storeLocalData(`${idMain}-item`, {x: x, y: y});
       },
-    })
+    }),
   ).current;
   useEffect(() => {
     if (active === idMain) {
@@ -102,17 +100,16 @@ export default function TextItem({
         transform:
           rotate !== 0
             ? [
-                { translateX: pan.x },
-                { translateY: pan.y },
-                { rotate: rotate + "deg" },
-                { scale: scale },
+                {translateX: pan.x},
+                {translateY: pan.y},
+                {rotate: rotate + 'deg'},
+                {scale: scale},
               ]
-            : [{ translateX: pan.x }, { translateY: pan.y }, { scale: scale }],
+            : [{translateX: pan.x}, {translateY: pan.y}, {scale: scale}],
         zIndex: 1000000000000,
-        position: "absolute",
+        position: 'absolute',
       }}
-      {...panResponder.panHandlers}
-    >
+      {...panResponder.panHandlers}>
       <Pressable
         onPress={() => {
           setActive(idMain);
@@ -133,25 +130,23 @@ export default function TextItem({
           });
           setTempRotate(rotate);
           setTempScale(scale);
-        }}
-      >
+        }}>
         <Text
           style={{
             fontFamily: font,
             fontSize: 30,
-            flexWrap: "wrap",
-            alignItems: "flex-start",
-            flexDirection: "row",
+            flexWrap: 'wrap',
+            alignItems: 'flex-start',
+            flexDirection: 'row',
             color: color,
             borderBottomWidth: 2,
             borderBottomWidth: 2,
             borderTopWidth: 2,
             borderLeftWidth: 2,
             borderRightWidth: 2,
-            borderColor: active === idMain ? "#fff" : "rgba(0,0,0,0)",
-            borderStyle: "solid",
-          }}
-        >
+            borderColor: active === idMain ? '#fff' : 'rgba(0,0,0,0)',
+            borderStyle: 'solid',
+          }}>
           {text}
         </Text>
       </Pressable>
@@ -161,18 +156,18 @@ export default function TextItem({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   titleText: {
     fontSize: 14,
     lineHeight: 24,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   box: {
     height: 150,
     width: 150,
-    backgroundColor: "blue",
+    backgroundColor: 'blue',
     borderRadius: 5,
   },
 });

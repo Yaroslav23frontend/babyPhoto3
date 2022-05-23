@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Slider from '@react-native-community/slider';
 import {View} from 'react-native';
 import {useActive} from '../context/ActiveContext';
 import MaterialIcons from './icons/MaterialIcons';
 import Ionicons from './icons/Ionicons';
+import {useFilters} from '../context/FiltersContext';
 export default function Filters() {
   const {brightnessValue, setBrightnessValue, contrastValue, setContrastValue} =
-    useActive();
+    useFilters();
+  console.log(brightnessValue);
   return (
     <View
       style={{
@@ -36,8 +38,8 @@ export default function Filters() {
           maximumValue={10}
           minimumTrackTintColor="#FFFFFF"
           maximumTrackTintColor="#000000"
-          onValueChange={value => setContrastValue(value)}
           value={contrastValue}
+          onValueChange={value => setContrastValue(value)}
         />
       </View>
       <View
@@ -54,12 +56,12 @@ export default function Filters() {
         <MaterialIcons name="brightness-medium" size={30} color="black" />
         <Slider
           style={{width: '90%', height: 24}}
-          minimumValue={0}
+          minimumValue={1}
           maximumValue={5}
           minimumTrackTintColor="#FFFFFF"
           maximumTrackTintColor="#000000"
-          onValueChange={value => setBrightnessValue(value)}
           value={brightnessValue}
+          onValueChange={value => setBrightnessValue(value)}
         />
       </View>
     </View>

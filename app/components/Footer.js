@@ -5,6 +5,7 @@ import {textDelete, stickerDelete, frameDelete} from '../store/action';
 import ScaleRotate from './ScaleRotate';
 import {StyleSheet, View, Dimensions, Text} from 'react-native';
 import Btn from './Btn';
+import {useFilters} from '../context/FiltersContext';
 export default function Footer({frame, navigation}) {
   const dispatch = useDispatch();
   const {
@@ -19,10 +20,9 @@ export default function Footer({frame, navigation}) {
     setMirrorX,
     setMirrorY,
     setFramesVisability,
-    setBrightnessValue,
-    setContrastValue,
+    setActive,
   } = useActive();
-
+  console.log(active);
   if (footerVisability) {
     return (
       <View style={styles.footer}>
@@ -68,6 +68,7 @@ export default function Footer({frame, navigation}) {
               setFramesVisability(true);
               setFooterVisability(false);
               setHeaderVisability(false);
+              setActive(0);
             }}
             type={'MaterialCommunityIcons'}
             name={'image-frame'}
@@ -86,8 +87,6 @@ export default function Footer({frame, navigation}) {
           <Btn
             func={() => {
               navigation.navigate('Filters');
-              setBrightnessValue(1);
-              setContrastValue(1);
             }}
             type="Ionicons"
             name="color-filter-outline"
@@ -99,6 +98,7 @@ export default function Footer({frame, navigation}) {
               dispatch({type: textDelete, payload: active});
               dispatch({type: stickerDelete, payload: active});
               dispatch({type: frameDelete, payload: {}});
+              setActive('');
             }}
             type="SimpleLineIcons"
             name="trash"

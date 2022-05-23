@@ -10,8 +10,9 @@ import {storeLocalData} from '../localstore/localstore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useEffect} from 'react';
 import {useActive} from '../context/ActiveContext';
+import {useScaleRotate} from '../context/ScaleRotateContext';
 
-const StickerItem = React.memo(props => {
+const StickerItem = props => {
   const pan = useRef(new Animated.ValueXY()).current;
   const [rotate, setRotate] = useState(0);
   const [scale, setScale] = useState(1);
@@ -23,26 +24,29 @@ const StickerItem = React.memo(props => {
       });
     });
     AsyncStorage.getItem(`${props.id}-item-rotate`).then(data => {
+      console.log('time rotate');
+      console.log(data);
       setRotate(Number(data));
     });
     AsyncStorage.getItem(`${props.id}-item-scale`).then(data => {
+      console.log('item rotate');
+      console.log(data);
       setScale(Number(data));
     });
   };
   useEffect(() => {
     LoadPosition();
   }, []);
-  const {
-    tempRotate,
-    setTempRotate,
-    active,
-    setActive,
-    tempScale,
-    setTempScale,
-  } = useActive();
+  const {active, setActive} = useActive();
+  const {tempRotate, setTempRotate, tempScale, setTempScale} = useScaleRotate();
   useEffect(() => {
     if (active === props.id) {
-      setRotate(tempRotate);
+      if (tempRotate !== 0) {
+        setRotate(tempRotate);
+      } else {
+        setRotate(tempRotate);
+      }
+
       storeLocalData(`${props.id}-item-rotate`, tempRotate);
     }
   }, [tempRotate]);
@@ -90,7 +94,6 @@ const StickerItem = React.memo(props => {
       },
     }),
   ).current;
-
   return (
     <Animated.View
       style={{
@@ -109,8 +112,8 @@ const StickerItem = React.memo(props => {
       {...panResponder.panHandlers}>
       <Pressable
         onPress={() => {
-          setTempRotate(rotate);
           setActive(props.id);
+          setTempRotate(rotate);
           setTempScale(scale);
         }}
         style={{
@@ -125,7 +128,7 @@ const StickerItem = React.memo(props => {
       </Pressable>
     </Animated.View>
   );
-});
+};
 const styles = StyleSheet.create({
   container: {
     flex: 1,

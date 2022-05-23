@@ -46,6 +46,7 @@ export default function FrameHeader() {
             setFooterVisability(true);
             setHeaderVisability(true);
             dispatch({type: frameDelete, payload: {}});
+            setActive('');
           }}>
           <Icon name="close-a" size={24} color="black" />
         </Pressable>

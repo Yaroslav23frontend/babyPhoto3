@@ -1,11 +1,25 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Slider from '@react-native-community/slider';
 import {View} from 'react-native';
-import {useActive} from '../context/ActiveContext';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {useScaleRotate} from '../context/ScaleRotateContext';
 export default function ScaleRotate({frame}) {
-  const {setTempRotate, tempRotate, setTempScale, tempScale} = useActive();
+  const {setTempRotate, tempRotate, setTempScale, tempScale} = useScaleRotate();
+  const [scale, setScale] = useState(tempScale);
+  const [rotate, setRotate] = useState(tempRotate);
+  useEffect(() => {
+    if (scale !== 0.2) {
+      setTempScale(scale);
+    } else {
+      setScale(tempScale);
+    }
+  }, [scale]);
 
+  useEffect(() => {
+    if (rotate !== 0) {
+      setTempRotate(rotate);
+    }
+  }, [rotate]);
   return (
     <View
       style={{
@@ -36,8 +50,8 @@ export default function ScaleRotate({frame}) {
           maximumValue={180}
           minimumTrackTintColor="#FFFFFF"
           maximumTrackTintColor="#000000"
-          onValueChange={value => setTempRotate(value)}
           value={tempRotate}
+          onValueChange={value => setRotate(value)}
         />
       </View>
       <View
@@ -58,8 +72,8 @@ export default function ScaleRotate({frame}) {
           maximumValue={2}
           minimumTrackTintColor="#FFFFFF"
           maximumTrackTintColor="#000000"
-          onValueChange={value => setTempScale(value)}
-          value={tempScale}
+          onValueChange={value => setScale(value)}
+          value={scale}
         />
       </View>
     </View>

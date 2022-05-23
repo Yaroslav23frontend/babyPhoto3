@@ -1,44 +1,44 @@
-import React from "react";
-import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
-import { useActive } from "../context/ActiveContext";
+import React from 'react';
+import {Alert, Modal, StyleSheet, Text, Pressable, View} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
+import {useActive} from '../context/ActiveContext';
 import {
   frameDelete,
   photoData,
   stickerDeleteAll,
   textDeleteAll,
-} from "../store/action";
+} from '../store/action';
 
-const MyModal = ({ onCloseMassege, massege, funcType, navigation }) => {
+const MyModal = ({onCloseMassege, massege, funcType, navigation}) => {
   const {
     modalVisability,
     setModalVisability,
     setImgRotate,
     setFooterVisability,
-    setBrightness,
-    setContrast,
+    setBrightnessValue,
+    setContrastValue,
   } = useActive();
   const dispatch = useDispatch();
-  const deleteChanges = useSelector((state) => state.delChanges);
+  const deleteChanges = useSelector(state => state.delChanges);
   function onSubmit(funcType) {
-    if (funcType === "delChanges") {
-      dispatch({ type: textDeleteAll, payload: [] });
-      dispatch({ type: stickerDeleteAll, payload: [] });
-      dispatch({ type: frameDelete, payload: {} });
-      dispatch({ type: photoData, payload: deleteChanges });
+    if (funcType === 'delChanges') {
+      dispatch({type: textDeleteAll, payload: []});
+      dispatch({type: stickerDeleteAll, payload: []});
+      dispatch({type: frameDelete, payload: {}});
+      dispatch({type: photoData, payload: deleteChanges});
       setImgRotate(0);
       setFooterVisability(true);
-      setBrightness(1);
-      setContrast(1);
+      setBrightnessValue(1);
+      setContrastValue(1);
     }
-    if (funcType === "delAll") {
-      dispatch({ type: textDeleteAll, payload: [] });
-      dispatch({ type: stickerDeleteAll, payload: [] });
-      dispatch({ type: frameDelete, payload: {} });
+    if (funcType === 'delAll') {
+      dispatch({type: textDeleteAll, payload: []});
+      dispatch({type: stickerDeleteAll, payload: []});
+      dispatch({type: frameDelete, payload: {}});
       setImgRotate(0);
       setFooterVisability(true);
-      setBrightness(1);
-      setContrast(1);
+      setBrightnessValue(1);
+      setContrastValue(1);
       navigation.goBack();
     }
   }
@@ -49,22 +49,19 @@ const MyModal = ({ onCloseMassege, massege, funcType, navigation }) => {
         transparent={true}
         visible={modalVisability}
         onRequestClose={() => {
-          if (onCloseMassege !== "" || onCloseMassege !== undefined) {
+          if (onCloseMassege !== '' || onCloseMassege !== undefined) {
             Alert.alert(onCloseMassege);
           }
           setModalVisability(!modalVisability);
-        }}
-      >
+        }}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <Text style={styles.modalText}>{massege}</Text>
             <View
-              style={{ flexDirection: "row", justifyContent: "space-between" }}
-            >
+              style={{flexDirection: 'row', justifyContent: 'space-between'}}>
               <Pressable
                 style={[styles.button, styles.buttonClose]}
-                onPress={() => setModalVisability(!modalVisability)}
-              >
+                onPress={() => setModalVisability(!modalVisability)}>
                 <Text style={styles.textStyle}>Cancel</Text>
               </Pressable>
               <Pressable
@@ -72,8 +69,7 @@ const MyModal = ({ onCloseMassege, massege, funcType, navigation }) => {
                 onPress={() => {
                   setModalVisability(!modalVisability);
                   onSubmit(funcType);
-                }}
-              >
+                }}>
                 <Text style={styles.textStyle}>Ok</Text>
               </Pressable>
             </View>
@@ -87,17 +83,17 @@ const MyModal = ({ onCloseMassege, massege, funcType, navigation }) => {
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     marginTop: 22,
   },
   modalView: {
     margin: 20,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     borderRadius: 5,
     padding: 35,
-    alignItems: "center",
-    shadowColor: "#000",
+    alignItems: 'center',
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 2,
@@ -113,19 +109,19 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   buttonOpen: {
-    backgroundColor: "#F194FF",
+    backgroundColor: '#F194FF',
   },
   buttonClose: {
-    backgroundColor: "#2196F3",
+    backgroundColor: '#2196F3',
   },
   textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center",
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   modalText: {
     marginBottom: 15,
-    textAlign: "center",
+    textAlign: 'center',
   },
 });
 

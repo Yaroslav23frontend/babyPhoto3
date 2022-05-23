@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {ImageBackground} from 'react-native';
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 import {useActive} from '../context/ActiveContext';
@@ -10,18 +10,20 @@ import {
   contrast,
   brightness,
 } from 'react-native-color-matrix-image-filters';
-export default function Img({filters, rotate, editor, children}) {
-  const {
-    setActive,
-    brightnessValue,
-    contrastValue,
-    imgRotate,
-    mirrorX,
-    mirrorY,
-  } = useActive();
-
+import {useFilters} from '../context/FiltersContext';
+import {useScaleRotate} from '../context/ScaleRotateContext';
+export default function Img({filters, rotate, editor, frame, children}) {
+  const {setActive, imgRotate, mirrorX, mirrorY} = useActive();
+  const {brightnessValue, contrastValue, setContrastValue} = useFilters();
+  const {tempRotate, setTempRotate, tempScale, setTempScale} = useScaleRotate();
   const data = useSelector(state => state.photoData);
-
+  console.log(brightnessValue);
+  console.log(contrastValue);
+  useEffect(() => {
+    if (contrastValue === 0) {
+      setContrastValue(1);
+    }
+  });
   return (
     <View
       style={{
@@ -30,7 +32,7 @@ export default function Img({filters, rotate, editor, children}) {
       }}>
       <Pressable
         onPress={() => {
-          setActive(false);
+          setActive('');
         }}>
         {filters === true ? (
           // <Surface
@@ -68,6 +70,19 @@ export default function Img({filters, rotate, editor, children}) {
               width: data.adaptedWidth,
               height: data.adaptedHeight,
               transform: [{rotate: imgRotate + 'deg'}],
+            }}>
+            {children}
+          </ImageBackground>
+        ) : (
+          <></>
+        )}
+        {frame ? (
+          <ImageBackground
+            source={{uri: data.photoURI}}
+            style={{
+              width: data.adaptedWidth,
+              height: data.adaptedHeight,
+              transform: [{rotate: tempRotate + 'deg'}, {scale: tempScale}],
             }}>
             {children}
           </ImageBackground>

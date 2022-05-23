@@ -10,6 +10,8 @@ import IdProivider from './app/context/IdContext';
 import FilterScreen from './app/screens/FilterScreen';
 import RotateScreen from './app/screens/RotateScreen';
 import FrameScreen from './app/screens/FrameScreen';
+import ScaleRotateProvider from './app/context/ScaleRotateContext';
+import FiltersProvider from './app/context/FiltersContext';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,19 +20,23 @@ export default function App() {
     <Provider store={store}>
       <ActiveProivider>
         <IdProivider>
-          <NavigationContainer>
-            <Stack.Navigator
-              screenOptions={{
-                headerShown: false,
-                cardStyle: {backgroundColor: 'transparent'},
-              }}>
-              <Stack.Screen name="Home" component={MainScreen} />
-              <Stack.Screen name="Editor" component={EditorScreen} />
-              <Stack.Screen name="Filters" component={FilterScreen} />
-              <Stack.Screen name="Rotate" component={RotateScreen} />
-              <Stack.Screen name="Frame" component={FrameScreen} />
-            </Stack.Navigator>
-          </NavigationContainer>
+          <ScaleRotateProvider>
+            <FiltersProvider>
+              <NavigationContainer>
+                <Stack.Navigator
+                  screenOptions={{
+                    headerShown: false,
+                    cardStyle: {backgroundColor: 'transparent'},
+                  }}>
+                  <Stack.Screen name="Home" component={MainScreen} />
+                  <Stack.Screen name="Editor" component={EditorScreen} />
+                  <Stack.Screen name="Filters" component={FilterScreen} />
+                  <Stack.Screen name="Rotate" component={RotateScreen} />
+                  <Stack.Screen name="Frame" component={FrameScreen} />
+                </Stack.Navigator>
+              </NavigationContainer>
+            </FiltersProvider>
+          </ScaleRotateProvider>
         </IdProivider>
       </ActiveProivider>
     </Provider>

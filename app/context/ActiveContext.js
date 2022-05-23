@@ -26,8 +26,8 @@ export default function ActiveProivider({children}) {
   const [headerVisability, setHeaderVisability] = useState(true);
   const [footerVisability, setFooterVisability] = useState(true);
   const [brightnessValue, setBrightnessValue] = useState(1);
-  const [imgRotate, setImgRotate] = useState(0);
   const [contrastValue, setContrastValue] = useState(1);
+  const [imgRotate, setImgRotate] = useState(0);
   const [modalVisability, setModalVisability] = useState(false);
   const [massege, setMassege] = useState('');
   const [onCloseMassege, setOnCloseMassege] = useState('');

@@ -6,12 +6,14 @@ import {frameDelete, photoData} from '../store/action';
 import {textDeleteAll, stickerDeleteAll} from '../store/action';
 import Header from './Header';
 import {captureRef} from 'react-native-view-shot';
+import {useFilters} from '../context/FiltersContext';
 const HeaderFilter = React.forwardRef((props, ref) => {
   const photoDataPrev = useSelector(state => state.photoData);
   const frame = useSelector(state => state.frame);
   const windowWidth = Dimensions.get('window').width;
   const dispatch = useDispatch();
   const {imgRotate, setImgRotate, setActive} = useActive();
+  const {setBrightnessValue, setContrastValue} = useFilters();
   const saveImage = async () => {
     console.log(ref.current);
     captureRef(ref, {
@@ -92,11 +94,15 @@ const HeaderFilter = React.forwardRef((props, ref) => {
   function functionAcept() {
     saveImage();
     props.navigation.navigate('Editor');
-    setActive(false);
+    setActive('');
+    setBrightnessValue(1);
+    setContrastValue(1);
   }
   function functionCancel() {
     props.navigation.navigate('Editor');
-    setActive(false);
+    setBrightnessValue(1);
+    setContrastValue(1);
+    setActive('');
   }
 
   return (
