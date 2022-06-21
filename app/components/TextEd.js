@@ -53,6 +53,8 @@ export default function TextEd() {
   ];
   const fonts = [
     '',
+    'Sitka Small',
+    'DRAguScript-Book',
     'Brush Script Std',
     'Barberry Letters ',
     'Gochi Hand Cyrillic',
@@ -186,7 +188,7 @@ export default function TextEd() {
               setTextEditVisability(false);
               setFooterVisability(true);
             }}>
-            <Icon name="angle-down" size={24} color="white" />
+            <Icon name="angle-down" size={20} color="white" />
           </TouchableWithoutFeedback>
           <TouchableWithoutFeedback
             onPress={() => {
@@ -197,7 +199,7 @@ export default function TextEd() {
               setTempText('');
               setFooterVisability(true);
             }}>
-            <Icon name="close-a" size={24} color="white" />
+            <Icon name="close-a" size={16} color="white" />
           </TouchableWithoutFeedback>
         </View>
 

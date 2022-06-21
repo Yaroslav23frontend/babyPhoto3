@@ -47,6 +47,23 @@
 		74206D71817147A698B92B23 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5514A86D0FC94ACE9A776A0A /* Octicons.ttf */; };
 		65B1AC7FCF5341D79D5F26F1 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B6D2A3F8D024C608EC100BD /* SimpleLineIcons.ttf */; };
 		6DCC11D545B6460088A90642 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD4124303D0D40F69DBC3C37 /* Zocial.ttf */; };
+		A3BF6CB2BDEF4263AA2BF16E /* DRAguScript-Book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE1DA896397542439ED0522F /* DRAguScript-Book.ttf */; };
+		C3E8F195D09B40F89D2227E4 /* Sitka Small.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1EEB23BDEA6466082208FA8 /* Sitka Small.ttf */; };
+		D3C9A6B2E7FF495EBED817A2 /* Astakhov First One Stripe.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E10FE58FA2A4C5095118F39 /* Astakhov First One Stripe.ttf */; };
+		C867841DE10643509F0AC707 /* Barberry Letters.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38E37982BB094B7FBE56ABA4 /* Barberry Letters.ttf */; };
+		39D504BC22E14BD3881B8F36 /* Bolero script.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0469A18A0CBA4F53B9D54645 /* Bolero script.ttf */; };
+		7E81BE72AF7D408DBE988625 /* Borsok.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79D7D03324B1473E9BF56242 /* Borsok.ttf */; };
+		8ED939CB711041B097AFEBD2 /* Brochure Cyr.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AF36F7118D2C44039106E2F6 /* Brochure Cyr.ttf */; };
+		69ABAE26AF9C4B77B602DDFB /* Brush Script Std.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47C6EE067B6A444B9302EA3B /* Brush Script Std.ttf */; };
+		9328E8C468854824AEE536EE /* Callygraph.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAF6E657C75348749F5EE6A3 /* Callygraph.ttf */; };
+		6AC9299520E644E591430911 /* Comic Nefors.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 836AEBDA63A648BCACAB4312 /* Comic Nefors.ttf */; };
+		0B044E67A1DB40D3BA2D6E36 /* Comic Sans MS.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABED661D84F14FDE941ADB15 /* Comic Sans MS.ttf */; };
+		2F6F24D71B5442988B451783 /* Debby.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D99193192292493080B3E36F /* Debby.ttf */; };
+		D05D08EF89824B97BE63BF20 /* Gochi Hand Cyrillic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4799E415A1CE40AE85AFB805 /* Gochi Hand Cyrillic.ttf */; };
+		C214CBC0A08F45BC9C763830 /* Minnie.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0CABF90B75F4EB58D5300E6 /* Minnie.ttf */; };
+		4DB409DCD35F4DDC95CDD7BB /* Pelmeshka.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B62159B1F4C4FAD85F8EAD6 /* Pelmeshka.ttf */; };
+		208084F1ED4E4E9780F6E51D /* Swiss Siena.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B08595DA8326443A8CB49A2B /* Swiss Siena.ttf */; };
+		07FC1A78E56F482DA9DDBE11 /* Umbrella [RUS by me].ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F8419893A6248319A2C1FD6 /* Umbrella [RUS by me].ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +127,23 @@
 		5514A86D0FC94ACE9A776A0A /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		3B6D2A3F8D024C608EC100BD /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		BD4124303D0D40F69DBC3C37 /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BE1DA896397542439ED0522F /* DRAguScript-Book.ttf */ = {isa = PBXFileReference; name = "DRAguScript-Book.ttf"; path = "../assets/fonts/DRAguScript-Book.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D1EEB23BDEA6466082208FA8 /* Sitka Small.ttf */ = {isa = PBXFileReference; name = "Sitka Small.ttf"; path = "../assets/fonts/Sitka Small.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6E10FE58FA2A4C5095118F39 /* Astakhov First One Stripe.ttf */ = {isa = PBXFileReference; name = "Astakhov First One Stripe.ttf"; path = "../assets/fonts/Astakhov First One Stripe.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		38E37982BB094B7FBE56ABA4 /* Barberry Letters.ttf */ = {isa = PBXFileReference; name = "Barberry Letters.ttf"; path = "../assets/fonts/Barberry Letters.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0469A18A0CBA4F53B9D54645 /* Bolero script.ttf */ = {isa = PBXFileReference; name = "Bolero script.ttf"; path = "../assets/fonts/Bolero script.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		79D7D03324B1473E9BF56242 /* Borsok.ttf */ = {isa = PBXFileReference; name = "Borsok.ttf"; path = "../assets/fonts/Borsok.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		AF36F7118D2C44039106E2F6 /* Brochure Cyr.ttf */ = {isa = PBXFileReference; name = "Brochure Cyr.ttf"; path = "../assets/fonts/Brochure Cyr.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		47C6EE067B6A444B9302EA3B /* Brush Script Std.ttf */ = {isa = PBXFileReference; name = "Brush Script Std.ttf"; path = "../assets/fonts/Brush Script Std.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BAF6E657C75348749F5EE6A3 /* Callygraph.ttf */ = {isa = PBXFileReference; name = "Callygraph.ttf"; path = "../assets/fonts/Callygraph.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		836AEBDA63A648BCACAB4312 /* Comic Nefors.ttf */ = {isa = PBXFileReference; name = "Comic Nefors.ttf"; path = "../assets/fonts/Comic Nefors.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		ABED661D84F14FDE941ADB15 /* Comic Sans MS.ttf */ = {isa = PBXFileReference; name = "Comic Sans MS.ttf"; path = "../assets/fonts/Comic Sans MS.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D99193192292493080B3E36F /* Debby.ttf */ = {isa = PBXFileReference; name = "Debby.ttf"; path = "../assets/fonts/Debby.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4799E415A1CE40AE85AFB805 /* Gochi Hand Cyrillic.ttf */ = {isa = PBXFileReference; name = "Gochi Hand Cyrillic.ttf"; path = "../assets/fonts/Gochi Hand Cyrillic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A0CABF90B75F4EB58D5300E6 /* Minnie.ttf */ = {isa = PBXFileReference; name = "Minnie.ttf"; path = "../assets/fonts/Minnie.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7B62159B1F4C4FAD85F8EAD6 /* Pelmeshka.ttf */ = {isa = PBXFileReference; name = "Pelmeshka.ttf"; path = "../assets/fonts/Pelmeshka.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B08595DA8326443A8CB49A2B /* Swiss Siena.ttf */ = {isa = PBXFileReference; name = "Swiss Siena.ttf"; path = "../assets/fonts/Swiss Siena.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9F8419893A6248319A2C1FD6 /* Umbrella [RUS by me].ttf */ = {isa = PBXFileReference; name = "Umbrella [RUS by me].ttf"; path = "../assets/fonts/Umbrella [RUS by me].ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +285,23 @@
 				5514A86D0FC94ACE9A776A0A /* Octicons.ttf */,
 				3B6D2A3F8D024C608EC100BD /* SimpleLineIcons.ttf */,
 				BD4124303D0D40F69DBC3C37 /* Zocial.ttf */,
+				BE1DA896397542439ED0522F /* DRAguScript-Book.ttf */,
+				D1EEB23BDEA6466082208FA8 /* Sitka Small.ttf */,
+				6E10FE58FA2A4C5095118F39 /* Astakhov First One Stripe.ttf */,
+				38E37982BB094B7FBE56ABA4 /* Barberry Letters.ttf */,
+				0469A18A0CBA4F53B9D54645 /* Bolero script.ttf */,
+				79D7D03324B1473E9BF56242 /* Borsok.ttf */,
+				AF36F7118D2C44039106E2F6 /* Brochure Cyr.ttf */,
+				47C6EE067B6A444B9302EA3B /* Brush Script Std.ttf */,
+				BAF6E657C75348749F5EE6A3 /* Callygraph.ttf */,
+				836AEBDA63A648BCACAB4312 /* Comic Nefors.ttf */,
+				ABED661D84F14FDE941ADB15 /* Comic Sans MS.ttf */,
+				D99193192292493080B3E36F /* Debby.ttf */,
+				4799E415A1CE40AE85AFB805 /* Gochi Hand Cyrillic.ttf */,
+				A0CABF90B75F4EB58D5300E6 /* Minnie.ttf */,
+				7B62159B1F4C4FAD85F8EAD6 /* Pelmeshka.ttf */,
+				B08595DA8326443A8CB49A2B /* Swiss Siena.ttf */,
+				9F8419893A6248319A2C1FD6 /* Umbrella [RUS by me].ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -385,6 +436,23 @@
 				74206D71817147A698B92B23 /* Octicons.ttf in Resources */,
 				65B1AC7FCF5341D79D5F26F1 /* SimpleLineIcons.ttf in Resources */,
 				6DCC11D545B6460088A90642 /* Zocial.ttf in Resources */,
+				A3BF6CB2BDEF4263AA2BF16E /* DRAguScript-Book.ttf in Resources */,
+				C3E8F195D09B40F89D2227E4 /* Sitka Small.ttf in Resources */,
+				D3C9A6B2E7FF495EBED817A2 /* Astakhov First One Stripe.ttf in Resources */,
+				C867841DE10643509F0AC707 /* Barberry Letters.ttf in Resources */,
+				39D504BC22E14BD3881B8F36 /* Bolero script.ttf in Resources */,
+				7E81BE72AF7D408DBE988625 /* Borsok.ttf in Resources */,
+				8ED939CB711041B097AFEBD2 /* Brochure Cyr.ttf in Resources */,
+				69ABAE26AF9C4B77B602DDFB /* Brush Script Std.ttf in Resources */,
+				9328E8C468854824AEE536EE /* Callygraph.ttf in Resources */,
+				6AC9299520E644E591430911 /* Comic Nefors.ttf in Resources */,
+				0B044E67A1DB40D3BA2D6E36 /* Comic Sans MS.ttf in Resources */,
+				2F6F24D71B5442988B451783 /* Debby.ttf in Resources */,
+				D05D08EF89824B97BE63BF20 /* Gochi Hand Cyrillic.ttf in Resources */,
+				C214CBC0A08F45BC9C763830 /* Minnie.ttf in Resources */,
+				4DB409DCD35F4DDC95CDD7BB /* Pelmeshka.ttf in Resources */,
+				208084F1ED4E4E9780F6E51D /* Swiss Siena.ttf in Resources */,
+				07FC1A78E56F482DA9DDBE11 /* Umbrella [RUS by me].ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

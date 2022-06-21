@@ -1,0 +1,86 @@
+diff --git a/node_modules/react-native-smooth-slider/src/Slider.js b/node_modules/react-native-smooth-slider/src/Slider.js
+index dc299eb..c466f3f 100644
+--- a/node_modules/react-native-smooth-slider/src/Slider.js
++++ b/node_modules/react-native-smooth-slider/src/Slider.js
+@@ -10,9 +10,12 @@ import {
+     Image,
+     StyleSheet,
+     View,
+-    ViewPropTypes,
+ } from 'react-native' 
+ 
++const ViewPropTypes = typeof document !== 'undefined' || Platform.OS === 'web'
++    ? PropTypes.shape({ style: PropTypes.object })
++    : require('react-native').ViewPropTypes || View.propTypes 
++
+ import {
+     PanGestureHandler,
+     State,
+@@ -49,9 +52,9 @@ export default class Slider extends PureComponent {
+                     translationX: this._translateX,
+                 },
+             }], {
+-                useNativeDriver: true,
+-                listener: this._handlePanResponderMove,
+-            }
++            useNativeDriver: true,
++            listener: this._handlePanResponderMove,
++        }
+         ) 
+     }
+ 
+@@ -181,6 +184,7 @@ export default class Slider extends PureComponent {
+          */
+         thumbImage: Image.propTypes.source,
+ 
++
+         /**
+          * Set this to true to be a vertical slider.
+          */
+@@ -323,28 +327,28 @@ export default class Slider extends PureComponent {
+         return (
+             <View {...other} style={[mainStyles.container, style, transformStyle]} onLayout={this._measureContainer}>
+                 <View
+-                    style={[{backgroundColor: maximumTrackTintColor}, mainStyles.track, trackStyle]}
++                    style={[{ backgroundColor: maximumTrackTintColor }, mainStyles.track, trackStyle]}
+                     renderToHardwareTextureAndroid={true}
+                     onLayout={this._measureTrack} >
+                     {trackImage ? <Image
+                         style={trackStyle}
+                         source={trackImage}
+                         resizeMode="stretch" />
+-                    : <Animated.View
+-                        renderToHardwareTextureAndroid={true}
+-                        style={[mainStyles.track, trackStyle, minimumTrackStyle]} />
++                        : <Animated.View
++                            renderToHardwareTextureAndroid={true}
++                            style={[mainStyles.track, trackStyle, minimumTrackStyle]} />
+                     }
+                 </View>
+                 <Animated.View
+                     onLayout={this._measureThumb}
+                     renderToHardwareTextureAndroid={true}
+                     style={[
+-                        {backgroundColor: thumbTintColor},
++                        { backgroundColor: thumbTintColor },
+                         mainStyles.thumb, thumbStyle, thumbMarginLeftStyle,
+                         {
+                             transform: [
+-                                { translateX: translate},
+-                                { translateY: 0},
++                                { translateX: translate },
++                                { translateY: 0 },
+                             ],
+                             ...valueVisibleStyle
+                         }
+@@ -518,8 +522,8 @@ export default class Slider extends PureComponent {
+         var animationConfig = Object.assign({},
+             DEFAULT_ANIMATION_CONFIGS[animationType],
+             this.props.animationConfig, {
+-                toValue: value
+-            }
++            toValue: value
++        }
+         ) 
+ 
+         Animated[animationType](this.state.value, animationConfig).start() 
